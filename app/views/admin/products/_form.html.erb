@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
+    <%= form.label '價格' %>
+    <%= form.number_field :price, min: 0, required: true %>
+  </div>
+
+  <div class="field">
     <%= form.label '庫存' %>
-    <%= form.number_field :stock, valuemin: 0, required: true %>
+    <%= form.number_field :stock, min: 0, required: true %>
   </div>
 
   <div class="field">
