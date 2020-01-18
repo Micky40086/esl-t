@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label '介紹' %>
-    <%= form.text_area :desc %>
+    <%= form.rich_text_area :desc %>
   </div>
 
   <div class="field">
@@ -36,7 +36,6 @@
     <%= form.fields_for :product_images do |product_image| %>
       <%= render 'product_image_fields', f: product_image %>
     <% end %>
-
   </div>
   <%= link_to_add_association '點擊新增圖片', form, :product_images, { data: { association_insertion_method: 'append', association_insertion_node: '#product_images' }} %>
 
