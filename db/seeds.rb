@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+['apple','banana'].each do |product_name|
+  Product.find_or_create_by(:name => product_name)
+end
