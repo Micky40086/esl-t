@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>名稱</th>
-      <th>價格</th>
+      <th>原價</th>
+      <th>售價</th>
       <th>庫存</th>
       <th>狀態</th>
       <th>圖片</th>
@@ -16,8 +17,10 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
+        <!-- 前端處理價格邏輯 -->
+        <td><%= (product.price * 0.7).round %></td>
         <td><%= product.stock %></td>
-        <td><%= product_status_arr[product.status.to_i] %></td>
+        <td><%= product_status_zh(product.status) %></td>
         <td>
           <% product.product_images.each do |product_image| %>
             <%= image_tag(product_image.image.thumb.url, height: 100) if product_image.image.present? %>
