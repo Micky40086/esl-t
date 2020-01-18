@@ -1,0 +1,46 @@
+<%= form_for([:admin, @product], local: true) do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label '名稱' %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label '介紹' %>
+    <%= form.text_area :desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label '庫存' %>
+    <%= form.number_field :stock, valuemin: 0, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label '狀態' %>
+    <%= form.select :status, [['進貨中', 'pedding'], ['上架', 'enable'], ['下架', 'disable']] %>
+  </div>
+
+  <div class="field" id="product_images">
+    <%= form.label '圖片區' %>
+    <%= form.fields_for :product_images do |product_image| %>
+      <%= render 'product_image_fields', f: product_image %>
+    <% end %>
+
+  </div>
+  <%= link_to_add_association '點擊新增圖片', form, :product_images, { data: { association_insertion_method: 'append', association_insertion_node: '#product_images' }} %>
+
+  <div class="actions" style="margin-top: 30px;">
+    <%= form.submit %>
+  </div>
+<% end %>

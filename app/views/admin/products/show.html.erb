@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>名稱:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>介紹:</strong>
+  <%= sanitize @product.desc %>
+</p>
+
+<p>
+  <strong>庫存:</strong>
+  <%= @product.stock %>
+</p>
+
+<p>
+  <strong>狀態:</strong>
+  <%= @product.status %>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_path(@product) %> |
+<%= link_to 'Back', admin_products_path %>

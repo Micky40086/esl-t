@@ -1,0 +1,14 @@
+<div class="nested-fields" style="border: 1px solid #f2f2f2;padding: 10px;">
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= image_tag(f.object.image_url, height: 100) if f.object.image.present? %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_field :note %>
+  </div>
+
+  <%= link_to_remove_association "移除此圖片", f %>
+</div>
