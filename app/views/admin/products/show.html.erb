@@ -25,5 +25,12 @@
   <%= product_status_arr[@product.status.to_i] %>
 </p>
 
+<p>
+  <strong>圖片:</strong>
+  <% @product.product_images.each do |product_image| %>
+    <%= image_tag(product_image.image.thumb.url, height: 100) if product_image.image.present? %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
 <%= link_to 'Back', admin_products_path %>

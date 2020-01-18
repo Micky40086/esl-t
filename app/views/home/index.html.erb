@@ -1,0 +1,29 @@
+<h1>所有商品</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>價格</th>
+      <th>庫存</th>
+      <th>狀態</th>
+      <th>圖片</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.stock %></td>
+        <td><%= product_status_arr[product.status.to_i] %></td>
+        <td>
+          <% product.product_images.each do |product_image| %>
+            <%= image_tag(product_image.image.thumb.url, height: 100) if product_image.image.present? %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

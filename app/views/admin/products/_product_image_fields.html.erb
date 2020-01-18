@@ -2,7 +2,7 @@
   <div class="field">
     <%= f.label :image %>
     <%= f.file_field :image %>
-    <%= image_tag(f.object.image_url, height: 100) if f.object.image.present? %>
+    <%= image_tag(f.object.image.thumb.url, height: 100) if f.object.image.present? %>
   </div>
 
   <div class="field">
