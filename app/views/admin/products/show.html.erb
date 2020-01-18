@@ -22,7 +22,7 @@
 
 <p>
   <strong>狀態:</strong>
-  <%= @product.status %>
+  <%= product_status_arr[@product.status.to_i] %>
 </p>
 
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
